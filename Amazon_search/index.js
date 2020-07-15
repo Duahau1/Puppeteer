@@ -65,7 +65,7 @@ async function checkPrice(page, item, browser) {
             }
         }
         console.log(retVal);
-        // await pushNotification(retVal);
+         await pushNotification(retVal);
     }
     catch (err) {
         console.log(err);
@@ -78,26 +78,26 @@ webConfigure("https://www.amazon.com/", (value, browser) => {
 });
 
 //This function is used to send email about cheapest item
-// async function pushNotification(product) {
-//     let info = JSON.stringify(product);
-//     // create reusable transporter object using the default SMTP transport
-//     let transporter = nodemailer.createTransport({
-//         host: "smtp.mailspons.com",
-//         port: 587,
-//         secure: false, // true for 465, false for other ports
-//         auth: {
-//           user: 'ffcedbf7e98144389e96', // generated ethereal user
-//           pass: '2d869dba0bea45ad85ac0fd6dad9b38d', // generated ethereal password
-//         },
-//       });
-//     let textToSend =`Hello, this is the cheapest product found with your searched keyword\n ${info}`;
-//     let mail = await transporter.sendMail({
-//         from: '"Price Tracker" <welcome@mailspons.com>',
-//         to: "udxercjjiikloulysf@ttirv.net",
-//         subject: 'It\'s time to check out ', 
-//         text: textToSend,
-//       });
+ async function pushNotification(product) {
+     let info = JSON.stringify(product);
+     // create reusable transporter object using the default SMTP transport
+     let transporter = nodemailer.createTransport({
+         host: "smtp.mailspons.com",
+         port: 587,
+         secure: false, // true for 465, false for other ports
+         auth: {
+           user: 'ffcedbf7e98144389e96', // generated ethereal user
+           pass: '2d869dba0bea45ad85ac0fd6dad9b38d', // generated ethereal password
+         },
+       });
+     let textToSend =`Hello, this is the cheapest product found with your searched keyword\n ${info}`;
+     let mail = await transporter.sendMail({
+         from: '"Price Tracker" <welcome@mailspons.com>',
+         to: "udxercjjiikloulysf@ttirv.net",
+         subject: 'It\'s time to check out ', 
+         text: textToSend,
+       });
 
-//       console.log("Message sent: %s", mail.messageId); 
+       console.log("Message sent: %s", mail.messageId); 
 
-// }
+ }
