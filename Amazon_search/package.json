@@ -1,0 +1,19 @@
+{
+  "name": "webcrawl",
+  "version": "1.0.0",
+  "description": "To crawl data from website using puppeteer",
+  "main": "index.js",
+  "dependencies": {
+    "nodemailer": "^6.4.10",
+    "puppeteer": "^5.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web"
+  ],
+  "author": "van nguyen",
+  "license": "MIT"
+}

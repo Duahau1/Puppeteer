@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 (async () => {
     const url = "https://snh48g.fandom.com/wiki/SNH48_Team_SII";
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'networkidle2' });
     let member_info = await page.evaluate(() => {
@@ -62,7 +62,7 @@ const fs = require('fs');
         }
         console.log(teamSII);
 
-          fs.writeFileSync('./data.json', JSON.stringify(teamSII));
+          //fs.writeFileSync('./data.json', JSON.stringify(teamSII));
     }
     catch (err) {
         console.log(err);
